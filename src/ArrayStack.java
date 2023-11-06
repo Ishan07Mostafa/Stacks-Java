@@ -20,25 +20,25 @@ public class ArrayStack implements Stack{
     // StackOverflowException if the stack is at maximum capacity. It
     // does not throw an exception for an "unbounded" stack, which
     // dynamically adjusts capacity as needed.
-    public void push(Object e) throws StackOverflowException{
+    public void push(Object element) throws StackOverflowException{
         if(this.size>=this.data.length) throw new StackOverflowException();
-        data[this.size] = e;
+        data[this.size] = element;
         this.size+=1;
     }
     // Pops the item on the top of the stack, throwing the
     // StackUnderflowException if the stack is empty.
     public Object pop() throws StackUnderflowException{
-        Object temp = null;
+        Object element = null;
         if(this.size==0) {
             throw new StackUnderflowException();
         }
         int n;
         if(this.size==0) n = this.size;
         else n = this.size-1;
-        temp = this.data[n];
+        element = this.data[n];
         this.data[n] = null;
         this.size--;
-        return temp;
+        return element;
     }
     // Peeks at the item on the top of the stack, throwing
     // StackUnderflowException if the stack is empty.
@@ -47,9 +47,9 @@ public class ArrayStack implements Stack{
         if(this.size==0) n = this.size;
         else n = this.size-1;
         if(this.size<0) throw new StackUnderflowException();
-        Object temp = null;
-        temp = this.data[n];
-        return temp;
+        Object element = null;
+        element = this.data[n];
+        return element;
     }
     // Returns a textual representation of items on the stack, in the
     // format "[ x y z ]", where x and z are items on top and bottom
@@ -83,10 +83,10 @@ public class ArrayStack implements Stack{
     }
     // Searches for the given item on the stack, returning the
     // offset from top of the stack if item is found, or -1 otherwise.
-    public int search(Object e){
+    public int search(Object element){
         int distance = 0;
         for(int i = this.size-1; i>=0; i--){
-            if(this.data[i]==e) return distance;
+            if(this.data[i]==element) return distance;
             else distance+=1;
         }
         return -1;

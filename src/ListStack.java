@@ -21,8 +21,8 @@ public class ListStack implements Stack{
     // StackOverflowException if the stack is at maximum capacity. It
     // does not throw an exception for an "unbounded" stack, which
     // dynamically adjusts capacity as needed.
-    public void push(Object e){
-        Node n = new Node(e, this.top);
+    public void push(Object element){
+        Node n = new Node(element, this.top);
         this.top = n;
         this.size++;
     }
@@ -65,10 +65,10 @@ public class ListStack implements Stack{
     }
     // Searches for the given item on the stack, returning the
     // offset from top of the stack if item is found, or -1 otherwise.
-    public int search(Object e){
+    public int search(Object element){
         int distance = 0;
         for(Node n = top; n!=null; n = n.next){
-            if(n.value==e) return distance;
+            if(n.value==element) return distance;
             else distance+=1;
         }
         return -1;
