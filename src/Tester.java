@@ -87,5 +87,6 @@ public class Tester{
         System.out.println("isEmpty: "+stack.isEmpty());
         System.out.println("Distance of '1' from the top: "+stack.search(1));
 
+        k.close();
     }
 }
